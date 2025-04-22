@@ -18,26 +18,26 @@ public class SecurityConfig {
 	        return http.build();
 	    }
 	
-//	@Bean
-//	public SecurityFilterChain configureAuthorization(HttpSecurity http) throws Exception {
-//	    http
-//	        
-//	        .csrf(csrf -> csrf.disable())
-//	        .authorizeHttpRequests(auth -> auth
-//	            .requestMatchers("/admin/**", "/daywiseOrder/**").hasRole("ADMIN")
-//	            .requestMatchers("/deliveryboy/**").hasRole("DELIVERYBOY")
-//	            .requestMatchers("/user/**").hasRole("USER")
-//	            .requestMatchers("/signin", "/signup", "/roles", "/sendotp", "/resetPassword", "/images/**").permitAll()
-//	            .requestMatchers(HttpMethod.OPTIONS).permitAll()
-//	            .anyRequest().authenticated()
-//	        )
-//	        .sessionManagement(session -> session
-//	            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//	        )
-//	        .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
-//
-//	    return http.build();
-//	}
-
 }
 
+
+//@Bean
+//public SecurityFilterChain configureAuthorization(HttpSecurity http) throws Exception {
+//    http
+//        
+//        .csrf(csrf -> csrf.disable())
+//        .authorizeHttpRequests(auth -> auth
+//            .requestMatchers("/admin/**", "/daywiseOrder/**").hasRole("ADMIN")
+//            .requestMatchers("/deliveryboy/**").hasRole("DELIVERYBOY")
+//            .requestMatchers("/user/**").hasRole("USER")
+//            .requestMatchers("/signin", "/signup", "/roles", "/sendotp", "/resetPassword", "/images/**").permitAll()
+//            .requestMatchers(HttpMethod.OPTIONS).permitAll()
+//            .anyRequest().authenticated()
+//        )
+//        .sessionManagement(session -> session
+//            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//        )
+//        .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
+//
+//    return http.build();
+//}
