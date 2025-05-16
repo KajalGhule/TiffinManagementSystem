@@ -51,8 +51,10 @@ public class User {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="userAddressId")
 	private UserAddress userAddress;
-	
-	public User(int id) {
-		this.userId=id;
+
+	public User(int userId) {
+		super();
+		this.userId = userId;
 	}
+	
 }
