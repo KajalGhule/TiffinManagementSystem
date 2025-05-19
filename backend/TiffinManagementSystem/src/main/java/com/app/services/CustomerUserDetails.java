@@ -23,9 +23,7 @@ public class CustomerUserDetails implements UserDetails{
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		System.out.println("inside customerUserDetails class");
 		System.out.println(Arrays.asList("Role : "+new SimpleGrantedAuthority(authUserDetails.getRole())));
-		String role = "ROLE_" + authUserDetails.getRole();
-//		return Arrays.asList(new SimpleGrantedAuthority(authUserDetails.getRole()));
-		return Arrays.asList(new SimpleGrantedAuthority(role));
+		return Arrays.asList(new SimpleGrantedAuthority(authUserDetails.getRole()));
 	}
 
 	@Override

@@ -33,7 +33,7 @@ public class SecurityConfig {
 				.antMatchers("/admin/**","/daywiseOrder/**").hasRole("ADMIN")
 				.antMatchers("/deliveryboy/**").hasRole("DELIVERYBOY")
 				.antMatchers("/user/**").hasRole("USER")
-				.antMatchers("/signin", "/signup", "/roles", "/sendotp","/resetPassword","/images/**").permitAll() //, "/signup"
+				.antMatchers("/signin", "/signup", "/roles", "/sendotp","/resetPassword","/images/**").permitAll()
 				.antMatchers(HttpMethod.OPTIONS).permitAll() // only required for JS clients(React)
 				.anyRequest().authenticated().and()
 				.sessionManagement()
@@ -42,7 +42,6 @@ public class SecurityConfig {
 				.addFilterBefore(filter,UsernamePasswordAuthenticationFilter.class);
 
 		return http.build();
-		
 	}
 	
 	@Bean

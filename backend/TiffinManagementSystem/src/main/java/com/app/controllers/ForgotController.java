@@ -1,7 +1,5 @@
 package com.app.controllers;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +20,6 @@ import com.app.dtos.resultDto;
 import com.app.pojos.User;
 import com.app.dtos.Credential;
 import com.app.dtos.EmailDTO;
-import com.app.dtos.OtpDetails;
-import com.app.dtos.ResetPasswordCreditial;
 import com.app.services.EmailService;
 import com.app.services.UserService;
 
@@ -31,8 +27,7 @@ import com.app.services.UserService;
 @RestController
 public class ForgotController {
 	Random random=new Random(1000);
-	private Map<String, OtpDetails> otpStorage = new HashMap<>();
-
+	
 	@Autowired
 	private EmailService emailservice;
 	
@@ -48,12 +43,9 @@ public class ForgotController {
 		
 		User validuser=userService.checkEmail(req.getEmail());
 		if(validuser!=null) {
-			System.out.println("valid user");
+			System.out.println("yupp baby");
 			
 			int otp=random.nextInt(999999);
-			long expiryTime = System.currentTimeMillis() + 5 * 60 * 1000; // 5 minutes
-			otpStorage.put(req.getEmail(), new OtpDetails(otp, expiryTime));
-			
 			String subject ="OTP from TiffinManagementSystem";
 			String message="OTP = "+otp+" ";
 			String to=req.getEmail();
@@ -72,24 +64,11 @@ public class ForgotController {
 	
 	
 	@PostMapping("/resetPassword")
-	public ResponseEntity<?> resetPassword(@RequestBody ResetPasswordCreditial cred){
+	public ResponseEntity<?> resetPassword(@RequestBody Credential cred){
 		System.out.println(cred.toString());
 		System.out.println("inside passwordreset");
 		System.out.println(cred.getEmail());
 		System.out.println(cred.getPassword());
-		
-		System.out.println(cred.toString());
-		System.out.println("inside passwordreset");
-
-		OtpDetails stored = otpStorage.get(cred.getEmail());
-		if (stored == null || stored.getOtp() != cred.getOtp()) {
-			return Response.error("Invalid OTP");
-		}
-		if (System.currentTimeMillis() > stored.getExpiryTime()) {
-			otpStorage.remove(cred.getEmail());
-			return Response.error("OTP has expired");
-		}
-		
 		User validuser=userService.checkEmail(cred.getEmail());
 		System.out.println(validuser);
 		User persistentUser=userService.restPass(validuser,cred.getPassword());

@@ -20,7 +20,7 @@ public class EmailService {
 		public boolean sendEmail(String subject, String message ,String to) {
 		
 		
-		String from ="kajalghule111@gmail.com";
+		String from ="thakur.sayali07@gmail.com";
 		//Variable for gmail
 		String host="smtp.gmail.com";
 		
@@ -40,7 +40,7 @@ public class EmailService {
 		Session session=Session.getInstance(properties, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {				
-				return new PasswordAuthentication("kajalghule111@gmail.com", "jslxfknuyuuszwql"); //jslx fknu yuus zwql
+				return new PasswordAuthentication("thakur.sayali07@gmail.com", "kksbqthswfwvmehn");
 			}
 				
 		});

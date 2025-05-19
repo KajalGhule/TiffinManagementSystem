@@ -65,8 +65,7 @@ public class UserService {
 	public List<UserDto> getalldeliveryBoys(){
 		
 		System.out.println("inside of getalldeliveryBoys");
-//		String role="ROLE_DELIVERYBOY";
-		String role="DELIVERYBOY";
+		String role="ROLE_DELIVERYBOY";
 		
 		List<User> user=userDao.findByRole(role);
 		System.out.println("------------------");
@@ -82,8 +81,8 @@ public class UserService {
 	
 	public List<UserDto> getallcustomers(){
 		
-//		List<User> user=userDao.findByRole("ROLE_USER");
-		List<User> user=userDao.findByRole("USER");
+		List<User> user=userDao.findByRole("ROLE_USER");
+		
 		List<UserDto> userdto=new ArrayList<>();
 		
 		for(User u:user) {

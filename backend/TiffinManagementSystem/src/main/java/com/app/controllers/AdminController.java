@@ -46,6 +46,13 @@ public class AdminController {
 		return Response.success(userservice.deleteCustomer(id));
 	}
 	
+	
+	@GetMapping("/DeliveryBoys")
+	public ResponseEntity<?> getDeliveryBoys(){
+		System.out.println("inside getdeliveryBoys method");
+		return Response.success(userservice.getalldeliveryBoys());
+	}
+	
 	@DeleteMapping("/DeliveryBoys/Delete/{userid}")
 	public ResponseEntity<?> deleteDeliveryBoy(@PathVariable int userid){
 		System.out.println("inside deleteDeliveryBoy");
