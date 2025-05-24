@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -20,7 +21,7 @@ public class EmailService {
 		public boolean sendEmail(String subject, String message ,String to) {
 		
 		
-		String from ="thakur.sayali07@gmail.com";
+		String from ="kajalghule111@gmail.com";
 		//Variable for gmail
 		String host="smtp.gmail.com";
 		
@@ -40,7 +41,11 @@ public class EmailService {
 		Session session=Session.getInstance(properties, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {				
-				return new PasswordAuthentication("thakur.sayali07@gmail.com", "kksbqthswfwvmehn");
+				return new PasswordAuthentication("kajalghule111@gmail.com", "ehuwytjeowtvkdhy");
+				/*
+				 * https://myaccount.google.com/security  --> on 2-Step Verification
+					https://myaccount.google.com/apppasswords?rapt=AEjHL4OAT_Qfef6ZgIrMpLzNMx1nBpVg2gz8OvuehfvVRIEF5febixFhdu8WZwxHCc7veBvOIpFrJ4e6mLv-yfCkLQJshJXHdRNgE8gvqVK9-tnwNp2sdu0---> set name ang get like this rznmxmabdppvrbwe 
+				 * */
 			}
 				
 		});
@@ -75,10 +80,10 @@ public class EmailService {
 		return true;
 		
 		}catch (Exception e) {
+			System.out.println("Email sending failed:");
 			e.printStackTrace();
 			return false;
 		}
-			
 	}
 }
 
